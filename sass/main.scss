@@ -1,0 +1,429 @@
+@use "setup" as *;
+
+body {
+    @include flex(column, $align: center);
+    background-color: $color-white;
+    text-align: center;
+}
+
+.header {
+    @include flex(column, $align: center);
+    width: 100%;
+    padding: rem(48px) $spacing-400 $spacing-400 $spacing-400;
+    overflow: hidden;
+
+    &__logo {
+        margin-bottom: $spacing-800;
+    }
+
+    &__hero-image-left, &__hero-image-right {
+        display: none;
+    }
+
+    &__hero-image-tablet {
+        height: rem(160px);
+        max-width: none;
+        margin-bottom: rem(48px);
+    }
+
+    &__content {
+        @include flex(column, $align: center);
+    }
+
+    &__text {
+        max-width: rem(311px);
+    }
+
+    &__heading {
+        @include text-preset-1;
+        font-size: $font-size-mobile-text-preset-1;
+
+        margin-bottom: $spacing-300;
+    }
+
+    &__description {
+        @include text-preset-4;
+        font-size: $font-size-tablet-text-preset-4;
+        color: $color-slate-600;
+
+        margin-bottom: $spacing-300;
+    }
+
+    &__buttons {
+        @include flex(column, $align: center, $gap: $spacing-200)
+    }
+}
+
+.download-btn, .info-btn {
+    all: unset;
+    @include flex(row, center, center);
+
+    @include text-preset-5;
+    color: $color-white;
+
+    padding: $spacing-200 $spacing-500;
+    border-radius: rem(29px);
+
+    transition: all 0.1s ease;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.download-btn {
+    gap: $spacing-50;
+    width: rem(113px);
+    height: rem(24px);
+    background-color: $color-cyan-600;
+
+    span {
+        color: $color-cyan-300;
+    }
+
+    &:hover {
+        background-color: #71C0D4;
+    }
+
+    &:focus-visible {
+        outline: rem(2px) solid $color-cyan-600;
+        outline-offset: rem(2px);
+    }
+}
+
+.info-btn {
+    width: rem(81px);
+    height: rem(24px);
+    background-color: $color-purple-600;
+
+    &:hover {
+        background-color: #B18BDD;
+    }
+
+    &:focus-visible {
+        outline: rem(2px) solid $color-purple-600;
+        outline-offset: rem(2px);
+    }
+}
+
+.main {
+    @include flex(column, $align: center);
+    padding: $spacing-400 $spacing-400 $spacing-800 $spacing-400;
+
+    .step-node {
+        margin-top: $spacing-1000;
+        margin-bottom: $spacing-800;
+    }
+
+    &__image-grid {
+        display: grid;
+        gap: $spacing-200;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: $spacing-800;
+        max-width: rem(311px);
+
+        img {
+            border-radius: $spacing-100;
+        }
+    }
+
+    &__text {
+        max-width: rem(311px);
+    }
+
+    strong {
+        @include text-preset-3;
+        font-size: $font-size-mobile-text-preset-3;
+
+        display: inline-block;
+        margin-bottom: $spacing-200;
+    }
+
+    &__heading {
+        @include text-preset-2;
+        font-size: $font-size-mobile-text-preset-2;
+        margin-bottom: $spacing-400;
+    }
+
+    &__description {
+        @include text-preset-4;
+        font-size: $font-size-tablet-text-preset-4;
+        color: $color-slate-600;
+    }
+}
+
+.step-node {
+    @include text-preset-5;
+    color: $color-slate-600;
+    
+    @include flex(row, center, center);
+    width: rem(56px);
+    height: rem(56px);
+    border-radius: 50%;
+    border: rem(1px) solid $color-slate-300;
+    background-color: $color-white;
+
+    position: relative;
+
+    &::before { // to create the line above the circle
+        content: "";
+        position: absolute;
+        bottom: 100%; // places bottom of the line at top of the circle
+        left: 50%;
+        transform: translateX(-50%);
+        width: rem(1px);
+        height: $spacing-1000;
+        background-color: $color-slate-300;
+    }
+}
+
+.footer {
+    width: 100%;
+    position: relative;
+    padding-top: calc(rem((56 / 2)) + $spacing-1000);
+    // calculates the space needed to contain the absolutely
+    // positioned step node
+
+    .step-node {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    
+    &__hero {
+        @include flex(column, $align: center);
+        padding: $spacing-800 $spacing-400;
+        background-image:
+            linear-gradient(rgba(77, 150, 169, 0.85), rgba(77, 150, 169, 0.85)),
+            url("assets/mobile/image-footer.jpg");
+        background-size: cover;
+    }
+
+    &__text {
+        max-width: rem(311px);
+    }
+
+    &__heading {
+        @include text-preset-2;
+        font-size: $font-size-mobile-text-preset-2;
+        color: $color-white;
+        margin-bottom: $spacing-300;
+        
+        text-wrap: pretty;
+    }
+
+    &__description {
+        @include text-preset-4;
+        font-size: $font-size-tablet-text-preset-4;
+        color: $color-white;
+        margin-bottom: $spacing-300;
+    }
+
+    .download-btn {
+        background-color: $color-purple-600;
+
+        span {
+            color: $color-purple-300;
+        }
+
+        &:hover {
+            background-color: #B18BDD;
+        }
+
+        &:focus-visible {
+            outline: rem(2px) solid $color-purple-600;
+            outline-offset: rem(2px);
+        }
+    }
+}
+
+@media (min-width: rem(768px)) {
+    .header {
+        padding-bottom: $spacing-800;
+
+        &__hero-image-tablet {
+            margin-bottom: $spacing-900;
+            height: rem(303px);
+        }
+
+        &__text {
+            max-width: rem(450px);
+        }
+
+        &__heading {
+            font-size: $font-size-tablet-text-preset-1;
+        }
+
+        &__buttons {
+            @include flex($gap: rem(17px));
+        }
+    }
+
+    .main {
+        padding-left: rem(44px);
+        padding-right: rem(44px);
+        padding-top: $spacing-700;
+
+        &__image-grid {
+            gap: $spacing-300;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+
+            max-width: rem(680px);
+        }
+
+        &__text {
+            max-width: rem(504px);
+        }
+
+        strong {
+            font-size: $font-size-tablet-text-preset-3;
+        }
+
+        &__heading {
+            font-size: $font-size-tablet-text-preset-2;
+            text-wrap: pretty;
+        }
+    }
+
+    .footer {
+        &__text {
+            max-width: rem(504px);
+        }
+
+        &__heading {
+            font-size: $font-size-tablet-text-preset-2;
+        }
+
+        &__hero {
+            background-image: 
+                linear-gradient(rgba(77, 150, 169, 0.85), rgba(77, 150, 169, 0.85)),
+                url("assets/tablet/image-footer.jpg");
+        }
+    }
+}
+
+@media (min-width: rem(1200px)) {
+    .header {
+        padding-top: $spacing-1000;
+        padding-left: 0;
+        padding-right: 0;
+
+        display: grid;
+        grid-template-columns: 1fr rem(448px) 1fr;
+        justify-items: center;
+        column-gap: rem(128px);
+
+        justify-content: center;
+
+        &__text {
+            * {
+                margin-bottom: $spacing-400;
+            }
+        }
+
+        &__heading {
+            font-size: $font-size-desktop-text-preset-1;
+        }
+
+        &__description {
+            font-size: $font-size-desktop-text-preset-4;
+        }
+        
+        &__logo {
+            grid-row: 1;
+            grid-column: 1 / 4;
+        }
+
+        &__content {
+            grid-row: 2;
+            grid-column: 2;
+        }
+
+        &__buttons {
+            grid-row: 3;
+            grid-column: 2;
+        }
+
+        &__hero-image-tablet {
+            display: none;
+        }
+
+        &__hero-image-left, &__hero-image-right {
+            display: block;
+            max-width: none;
+            grid-row: 2;
+        }
+
+        &__hero-image-left {
+            grid-column: 1;
+            align-self: start;
+        }
+
+        &__hero-image-right {
+            grid-column: 3;
+            margin-top: rem(57px);
+        }
+    }
+
+    .main {
+        padding: $spacing-700 rem(160px) $spacing-900 rem(160px);
+
+        &__image-grid {
+            gap: $spacing-400;
+            max-width: rem(1120px);
+        }
+
+        &__text {
+            max-width: rem(544px);
+        }
+
+        strong {
+            font-size: $font-size-desktop-text-preset-3;
+        }
+
+        &__heading {
+            font-size:$font-size-desktop-text-preset-2;
+        }
+
+        &__description {
+            font-size: $font-size-desktop-text-preset-4;
+        }
+    }
+
+    .footer {
+
+        &__hero {
+            @include flex(row, center, center);
+            padding: $spacing-1400 $spacing-1000;
+            background-image: 
+                linear-gradient(rgba(77, 150, 169, 0.85), rgba(77, 150, 169, 0.85)),
+                url("assets/desktop/image-footer.jpg");
+        }  
+
+        &__text {
+            @include flex(row, $gap: $spacing-400);
+            max-width: unset;
+            text-align: left;
+
+            * {
+                margin: 0;
+            }
+        }
+
+        &__heading {
+            font-size: $font-size-desktop-text-preset-2;
+            max-width: rem(445px);
+        }
+
+        &__description {
+            font-size: $font-size-desktop-text-preset-4;
+            max-width: rem(355px);
+            text-wrap: stable;
+        }
+
+        .download-btn {
+            margin-left: rem(95px);
+            align-self: flex-start;
+        }
+    }
+}

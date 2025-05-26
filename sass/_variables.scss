@@ -1,0 +1,91 @@
+@use 'functions' as *;
+
+// colors
+$color-cyan-300: #8fe3f9;
+$color-cyan-600: #4d96a9;
+$color-purple-300: #d9b8ff;
+$color-purple-600: #855fb1;
+$color-slate-300: #d1d1df;
+$color-slate-600: #87879d;
+$color-slate-900: #28283d;
+$color-white: #fafafa;
+
+// desktop font sizes
+$font-size-desktop-text-preset-3: 1rem;
+$font-size-desktop-text-preset-5: 1rem;
+$font-size-desktop-text-preset-4: 1.125rem;
+$font-size-desktop-text-preset-2: 2.5rem;
+$font-size-desktop-text-preset-1: 4rem;
+
+// mobile font sizes
+$font-size-mobile-text-preset-3: 0.75rem;
+$font-size-mobile-text-preset-2: 2rem;
+$font-size-mobile-text-preset-1: 2.5rem;
+
+// tablet font sizes
+$font-size-tablet-text-preset-3: 0.875rem;
+$font-size-tablet-text-preset-4: 1rem;
+$font-size-tablet-text-preset-2: 2.25rem;
+$font-size-tablet-text-preset-1: 3rem;
+
+// spacings
+$spacing-50: 0.25rem;
+$spacing-100: 0.5rem;
+$spacing-200: 1rem;
+$spacing-300: 1.5rem;
+$spacing-400: 2rem;
+$spacing-500: 2.5rem;
+$spacing-700: 3.5rem;
+$spacing-800: 4rem;
+$spacing-900: 4.5rem;
+$spacing-1000: 5rem;
+$spacing-1400: 7rem;
+
+// text presets (font sizes are for desktop)
+@mixin text-preset-1 {
+    color: var(--color-slate-900, #28283D);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "Red Hat Display";
+    font-size: $font-size-desktop-text-preset-1;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 110%;
+}
+@mixin text-preset-2 {
+    color: var(--color-slate-900, #28283D);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "Red Hat Display";
+    font-size: $font-size-desktop-text-preset-2;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 110%;
+}
+@mixin text-preset-3 {
+    color: var(--color-cyan-600, #4D96A9);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "Red Hat Display";
+    font-size: $font-size-desktop-text-preset-3;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 110%;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+@mixin text-preset-4 {
+    color: var(--color-slate-900, #28283D);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "Red Hat Display";
+    font-size: $font-size-desktop-text-preset-4;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+}
+@mixin text-preset-5 {
+    color: var(--color-slate-900, #28283D);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "Red Hat Display";
+    font-size: $font-size-desktop-text-preset-5;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 150%;
+}
