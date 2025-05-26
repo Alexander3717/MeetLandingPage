@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [View solution on Frontend Mentor](https://your-solution-url.com)
+- Solution URL: [View solution on Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-meet-landing-page-made-with-flexbox-and-grid-4_EQ9IKWej)
 - Live Site URL: [View Live Site](https://alexander3717.github.io/MeetLandingPage/)
 
 ## My process
@@ -57,10 +57,11 @@ You can easily apply tint to a background image using `linear-gradient`:
 
 Here, by using the same color at both ends of the gradient, you create a single-color overlay. Because `background-image` layers "images" in the order you specify them, the tint sits on top of the image.
 
-I also learned that if you need to center an image and crop it symmetrically when the viewport gets too narrow, you have to:
+I also learned that if you need to center an image and crop its sides symmetrically when the viewport gets too narrow, you have to:
 
-- center the image within its container
-- center the container itself
+- give image `max-width: none`
+- horizontally center the image within its container
+- horizontally center the container itself
 - apply `overflow: hidden` to that container
 
 Without `overflow: hidden`, the cropping becomes uneven for some reason.
